@@ -1,0 +1,9 @@
+WITH first as 
+(SELECT user_id,MAX(post_date) as Last_post,Min(post_date) as first_post
+FROM posts
+WHERE EXTRACT(year from post_date)='2021'
+GROUP BY user_id)
+
+SELECT user_id,EXTRACT(Day from Last_post-first_post) as days_btw
+from first
+where EXTRACT(Day from Last_post-first_post)>0;
