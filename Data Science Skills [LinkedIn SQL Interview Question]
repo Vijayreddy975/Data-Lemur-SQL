@@ -1,0 +1,4 @@
+SELECT Candidate_id from candidates
+where skill in ('Python','PostgreSQL','Tableau')
+GROUP BY Candidate_id
+Having Count(*)>=3
